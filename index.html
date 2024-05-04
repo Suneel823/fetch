@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,td,tr{
+            border: 2px solid red;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+   <script>
+fetch("https://fakestoreapi.com/products",
+{method:"get"}).then((val)=>{
+    return val.json();
+}).then((val)=>{
+ 
+    var tab=document.createElement("table");
+    document.body.appendChild(tab);
+   for(i=0;i<val.length;i++){
+    var trr=document.createElement("tr");
+    tab.appendChild(trr);
+    var td1=document.createElement("td");
+    trr.appendChild(td1);
+    td1.innerText=val[i].id
+
+    var td2=document.createElement("td");
+    trr.appendChild(td2);
+    td2.innerText=val[i].category;
+
+    var td3=document.createElement("td");
+    trr.appendChild(td3);
+    td3.innerText=val[i].price;
+
+    var td4=document.createElement("td");
+    trr.appendChild(td4);
+    td4.innerText=val[i].title;
+
+    var td4=document.createElement("td");
+    trr.appendChild(td4);
+    var imgg=document.createElement("img");
+    imgg.setAttribute("src",val[i].image);
+    imgg.style.width="100px"
+    td4.appendChild(imgg);
+    
+
+
+
+
+
+
+
+
+   }
+
+
+
+})
+   </script> 
+</body>
+</html>
